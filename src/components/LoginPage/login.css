@@ -1,3 +1,4 @@
+/*
 .Login {
     text-align: center;
   
@@ -9,10 +10,10 @@
   }
   
   .Login-header {
-    background-color:white;
+
     height: 150px;
     padding: 20px;
-    color: white;
+
   }
   
   .Login-title {
@@ -22,18 +23,24 @@
   .Login-intro {
     font-size: large;
   }
-  
+  .tux{
+width: 20%;
+margin: 5em;
+  }
   @keyframes Login-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
   
   body{
-    background-color:#465e64;
+    background-color:#348295;
+    font-family: 'Ubuntu';
+    text-align:center;
   }
+
   .page {
     margin: 20px;
-    background-clip:white;
+
   }
   
   .interactions {
@@ -64,8 +71,8 @@
     white-space: nowrap;
     margin: 10px 0;
     padding: 10px;
-    background: #ffffff;
-    border: 1px solid #e3e3e3;
+    /* background: #ffffff;
+    border: 1px solid #e3e3e3; 
   }
   
   .table-header > span {
@@ -92,3 +99,4 @@
   .small-width {
     width: 10%;
   }
+  */

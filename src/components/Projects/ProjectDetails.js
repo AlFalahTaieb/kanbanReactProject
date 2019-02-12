@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const ProjectDetails = (props) =>{
-
+    // const date = new Date(project.date).toDateString()
 let user={
     id :props.match.params.id,
     title: props.location.state.project['projectName'],
@@ -10,11 +10,12 @@ let user={
     consultants:props.location.state.project['consultants'],
     label:props.location.state.project['label'],
     user:props.location.state.project['ScrumMasterUsername'],
-    date:props.location.state.project['date']
+    date:new Date(props.location.state.project['date']).toLocaleString()
 }
 console.log(user)
 console.log(props)
 // console.log(props)
+if (user){
     return (
         <div className='container section project-details'>
             <div className='card z-depth-0'>
@@ -23,12 +24,18 @@ console.log(props)
                     <p>bakbakjabjkabjkabjkabkajbkajbajbakjbakjbkajbakjbajbaja</p>
                 </div>
                 <div className="card-action grey lighten-4 grey-text">
-                    <div>POSTED BY TAIEB</div>
-                    <div>Today</div>
+                    <div>POSTED BY {user.user}</div>
+                    <div>{user.date}</div>
                 </div>
             </div>
         </div>
     )
+} else {
+    return (
+        <div className='container center'>
+            <p>Loading Project...</p>
+        </div>
+    )
 }
-
+}
 export default ProjectDetails

@@ -2,6 +2,7 @@ import React from 'react'
 
 
 const ProjectSummary = ({ project }) => {
+    const date = new Date(project.date).toLocaleString()
     return (
         <div
             className='card z-depth-0 project-summary'>
@@ -9,7 +10,7 @@ const ProjectSummary = ({ project }) => {
                 <span className='card-title'>{project.projectName}</span>
                 <p>{project.ScrumMasterUsername}</p>
                 <p>{project.label}</p>
-                <p className='grey-text'>3rd septembr,1</p>
+                <p className='grey-text'>{date}</p>
             </div>
 
         </div>

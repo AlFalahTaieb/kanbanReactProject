@@ -25,9 +25,11 @@ class Dashboard extends Component {
                 id:pro._id,
                 state: pro.state,
                 projectName: pro.projectName,
+                label:pro.label,
                 consultants: pro.consultants,
-                ScrumMasterUsername: pro.scrumMaster.username,
-                ScrumMasterId:pro.scrumMaster._id
+                ScrumMasterUsername: pro.scrumMaster['username'],
+                ScrumMasterId:pro.scrumMaster._id,
+                date:pro.date
             }
         })
         return this.setState({

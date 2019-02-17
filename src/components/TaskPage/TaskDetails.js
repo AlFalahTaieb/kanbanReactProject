@@ -12,7 +12,7 @@ let task={
     created:new Date(props.location.state.task['createdAt']).toLocaleString(),
     updated:new Date(props.location.state.task['updatedAt']).toLocaleString()
 }
-console.log(user)
+console.log(updated)
 console.log(props)
 // console.log(props)
 if (user){

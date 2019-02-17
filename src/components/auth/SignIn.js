@@ -7,8 +7,10 @@ class SignIn extends Component {
         this.state = {
             username: '',
             password: '',
+            id: '',
             responseToPost: '',
-            loading: false
+            loading: false,
+            submitted:true
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -16,17 +18,27 @@ class SignIn extends Component {
     }
     handleSubmit = async e => {
         e.preventDefault()
-        const response = await fetch("/signup", {
+        const response = await fetch("/login", {
             method: 'POST',
+            async: false,
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username: this.state.username, password: this.state.username }),
+            body: JSON.stringify({ username: this.state.username, password: this.state.password, user_id: this.state.id }),
         })
         const body = await response.text()
-        console.log(this.state.username)
-        console.log(this.state.password)
-        this.setState({ responseToPost: body })
+    
+        // console.log(body === '')
+        if (body === '') {
+            console.log('errrrooooor')
+        } else {
+            const test = JSON.parse(body)
+            console.log(this.state.username)
+            console.log(test.token)
+            this.setState({ responseToPost: body, token: test.token })
+        }
+
+
     }
 
     handleChange(e) {
@@ -34,7 +46,7 @@ class SignIn extends Component {
         this.setState({ [name]: value })
     }
     render() {
-        const { username, password, submitted } = this.state;
+        const { username, password, submitted } = this.state
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
@@ -50,7 +62,7 @@ class SignIn extends Component {
                         <label htmlFor="password">Password</label>
                         <input type="password" className=" blue-text text-darken-2" name="password" value={this.state.password} onChange={e => this.setState({ password: e.target.value })} />
                         {submitted && !password &&
-                            <div className="help-block">Password is required</div>
+                            <div className="help-block text-lighten">Password is required</div>
                         }
                     </div>
                     <div className="input-field">
@@ -58,8 +70,13 @@ class SignIn extends Component {
                     </div>
                 </form>
                 The user is <b>{this.state.responseToPost ? 'currently' : 'not'}</b> logged in.
+                {/* <p>{this.state.token}</p> */}
+                <br/>
+                
 
-      </div>
+                <div className="card-panel teal lighten-2">The user is <b>{this.state.responseToPost==='' ? 'zaaaaaaaaaaaab' : 'not'}</b> logged in.</div>
+                
+            </div>
         )
     }
 }

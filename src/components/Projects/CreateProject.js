@@ -59,6 +59,7 @@ class CreateProject extends Component {
                         <button className='btn green lighten-1 z-depth-0'>Submit</button>
                     </div>
                 </form>
+       
                 {/* The user is <b>{this.state.responseToPost ? 'currently' : 'not'}</b> logged in. */}
 
       </div>

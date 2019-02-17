@@ -9,7 +9,6 @@ class ProjectDetails extends Component {
             id: props.match.params.id,
             loading: true,
             tasks: null,
-            id: props.match.params.id,
             title: props.location.state.project['projectName'],
             state: props.location.state.project['state'],
             consultants: props.location.state.project['consultants'],

@@ -53,7 +53,7 @@ class Login extends Component {
     }
     render() {
         const { from } = this.props.location.state || '/'
-        const { username, password, submitted, fireRedirect, token, body } = this.state
+        const { username, password, submitted, fireRedirect} = this.state
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">

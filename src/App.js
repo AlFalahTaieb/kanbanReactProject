@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Navbar from './components/Layout/Navbar'
 import Dashboard from './components/Dashboard/Dashboard'
 import CreateProject from './components/Projects/CreateProject'
 import ProjectDetails from './components/Projects/ProjectDetails'
 import Login from './components/auth/Login'
-// import SignedInLinks from './components/Layout/SignedInLinks'
 
 class App extends Component {
 

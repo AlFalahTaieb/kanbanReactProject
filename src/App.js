@@ -51,7 +51,7 @@ class App extends Component {
         <div>
         <Navbar />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route path='/project/:id' component={ProjectDetails} />
+          {/* <Route path='/project/:id' component={ProjectDetails} /> */}
           <Route path="/project/:id" render={(props) => <ProjectDetails projects={this.location} {...props} />} ></Route>
           {/* <Route path='/signin' component={SignIn} /> */}
           <Route path='/create' component={CreateProject} />

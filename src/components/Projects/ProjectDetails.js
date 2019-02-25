@@ -25,7 +25,7 @@ class ProjectDetails extends Component {
     async componentDidMount() {
 
         this._isMounted = true
-        let resp = await fetch(`http://localhost:5001/showtasks/${this.state.id}`)
+        let resp = await fetch(`http://localhost:5001/showtasks/5c607cfec27d6254c6fe0ca1`)
         let data = await resp.json()
         console.log('yooo' + this.state.id)
 

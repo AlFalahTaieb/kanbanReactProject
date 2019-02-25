@@ -37,18 +37,15 @@ class Login extends Component {
         } else {
             const test = JSON.parse(body)
             console.log('hey this is the token:' + test.token)
-            return this.setState({ responseToPost: body, token: test.token, loggedIn: true, fireRedirect: true })
+            localStorage.setItem('TOKEN_KEY', test.token) //Persist
+            document.cookie = test.token
+            console.log(localStorage)
+            return this.setState({ responseToPost: body, token: test.token, loggedIn: true, fireRedirect: true, userId: test.user['_id'] })
 
         }
 
 
     }
-    // componentWillMount(){
-    //     if(sessionStorage.getItem('access_token') != null && sessionStorage.getItem('token') != null){
-    //         this.setState({loggedIn: true});
-    //     } 
-    //     console.log(this.state.loggedIn)
-    // }
 
     handleChange(e) {
         const { name, value } = e.target;
@@ -89,8 +86,8 @@ class Login extends Component {
 
                 <div className="card-panel green lighten-2 center">Is this User Logged : {this.state.loggedIn ? '👍' : '👎'}</div>
                 {fireRedirect && (
-                    <Redirect to={{  pathname: from || '/dashboard', state: {token:this.state.token}}}  />
-            )}
+                    <Redirect to={{ pathname: from || '/dashboard', state: { token: this.state.token, userId:this.state.userId } }} />
+                )}
             </div>
 
         )
